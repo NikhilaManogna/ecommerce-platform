@@ -1,0 +1,30 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+spring:
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP:notification-service}
+
+logging:
+  level:
+    root: INFO
+    com.ecommerce.notification: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

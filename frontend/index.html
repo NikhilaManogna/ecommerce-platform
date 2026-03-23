@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="page-shell">
+    <header class="hero">
+        <div class="hero-copy">
+            <h1>E-Commerce Platform</h1>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="panel">
+            <h2>1. Register/Login</h2>
+            <div class="field-grid">
+                <input id="name" placeholder="Name">
+                <input id="email" placeholder="Email">
+                <input id="password" placeholder="Password" type="password">
+            </div>
+            <div class="actions">
+                <button id="registerBtn">Register</button>
+                <button id="loginBtn" class="secondary">Login</button>
+                <button id="resetBtn" class="secondary">Reset Session</button>
+            </div>
+            <pre id="authOutput" class="console section-console"></pre>
+        </section>
+
+        <section class="panel">
+            <h2>2. Product</h2>
+            <div class="field-grid">
+                <input id="productName" placeholder="Product name">
+                <input id="productPrice" placeholder="Price" type="number" step="0.01">
+                <input id="productStock" placeholder="Stock" type="number">
+                <input id="productCategory" placeholder="Category">
+            </div>
+            <textarea id="productDescription" placeholder="Description"></textarea>
+            <div class="actions">
+                <button id="createProductBtn">Create Product</button>
+                <button id="loadProductsBtn" class="secondary">Load Products</button>
+            </div>
+            <pre id="productOutput" class="console section-console"></pre>
+        </section>
+
+        <section class="panel">
+            <h2>3. Catalog</h2>
+            <div class="actions">
+                <button id="refreshProductsBtn" class="secondary">Refresh Catalog</button>
+            </div>
+            <div id="products" class="cards"></div>
+        </section>
+
+        <section class="panel">
+            <h2>4. Cart</h2>
+            <div class="actions">
+                <button id="loadCartBtn" class="secondary">Load Cart</button>
+            </div>
+            <pre id="cartOutput" class="console"></pre>
+        </section>
+
+        <section class="panel">
+            <h2>5. Orders</h2>
+            <div class="actions">
+                <button id="createOrderBtn">Create Order From Cart</button>
+                <button id="loadOrdersBtn" class="secondary">Order History</button>
+            </div>
+            <pre id="ordersOutput" class="console"></pre>
+        </section>
+
+        <section class="panel">
+            <h2>6. Notifications</h2>
+            <div class="actions">
+                <button id="loadNotificationsBtn" class="secondary">Load Notifications</button>
+            </div>
+            <pre id="notificationsOutput" class="console"></pre>
+        </section>
+    </main>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+server:
+  port: ${SERVER_PORT:8084}
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:orderdb}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  jackson:
+    default-property-inclusion: non_null
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:VGhpc0lzQVNlY3VyZUVjb21tZXJjZUpXVEtleUZvclByb2R1Y3Rpb24xMjM0NTY3ODkw}
+
+logging:
+  level:
+    root: INFO
+    com.ecommerce.order: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

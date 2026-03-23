@@ -1,0 +1,83 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: false
+      routes:
+        - id: user-service
+          uri: ${USER_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - JwtAuthentication
+        - id: product-service
+          uri: ${PRODUCT_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/products/**
+          filters:
+            - JwtAuthentication
+        - id: cart-service
+          uri: ${CART_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - JwtAuthentication
+        - id: order-service
+          uri: ${ORDER_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - JwtAuthentication
+        - id: payment-service
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8085}
+          predicates:
+            - Path=/api/payments/**
+          filters:
+            - JwtAuthentication
+        - id: notification-service
+          uri: ${NOTIFICATION_SERVICE_URL:http://localhost:8086}
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - JwtAuthentication
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:VGhpc0lzQVNlY3VyZUVjb21tZXJjZUpXVEtleUZvclByb2R1Y3Rpb24xMjM0NTY3ODkw}
+
+logging:
+  level:
+    root: INFO
+    com.ecommerce.gateway: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

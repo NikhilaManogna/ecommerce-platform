@@ -26,6 +26,7 @@ The system follows a distributed microservices architecture:
 - Kafka enables asynchronous communication between services
 - Redis is used for caching and fast data access
 - PostgreSQL is used for persistent storage
+![Architecture](docs/architecture.png)
 
 ---
 
@@ -88,3 +89,74 @@ All APIs follow a consistent response structure:
   "error": null
 }
 ```
+---
+
+## ▶️ How to Run
+
+### 🔹 Prerequisites
+
+Make sure the following are installed:
+
+- Docker
+- Git
+
+---
+
+### 🔹 Steps to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/NikhilaManogna/ecommerce-platform.git
+
+# Navigate to project directory
+cd ecommerce-platform
+
+# Start all services
+docker-compose up --build
+```
+---
+
+### 🔹 Access Services
+
+| Service | URL |
+|--------|-----|
+| API Gateway | http://localhost:8080 |
+| User Service | http://localhost:8081 |
+| Product Service | http://localhost:8082 |
+| Order Service | http://localhost:8083 |
+
+---
+
+## 🚀 Performance Highlights
+
+- Handles concurrent requests efficiently using microservices  
+- Redis caching reduces database load  
+- Kafka ensures reliable asynchronous processing  
+
+---
+
+## 🔐 Security
+
+- JWT-based authentication  
+- API Gateway for secure routing  
+- Role-based access control (if implemented)  
+
+---
+
+## 🧠 Key Learnings
+
+- Designing scalable microservices architecture  
+- Implementing event-driven systems using Kafka  
+- Optimizing performance with Redis caching  
+- Containerizing applications using Docker  
+
+---
+
+## 📌 Future Enhancements
+
+- Implement Saga pattern for distributed transactions  
+- Add centralized logging (ELK stack)  
+- Integrate monitoring (Prometheus + Grafana)  
+- Add retry mechanisms for failed services  
+
+---

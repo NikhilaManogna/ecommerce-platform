@@ -26,6 +26,7 @@ The system follows a distributed microservices architecture:
 - Kafka enables asynchronous communication between services
 - Redis is used for caching and fast data access
 - PostgreSQL is used for persistent storage
+  
 ![Architecture](docs/architecture.png)
 
 ---

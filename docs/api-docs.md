@@ -189,5 +189,5 @@ Request:
 
 - All client traffic should go through http://localhost:8080`r
 - The API Gateway centralizes request routing and JWT validation
-- Kafka flow for checkout: Order Service -> order-created -> Payment Service -> payment-completed -> Notification Service`r
+- Kafka flow for checkout: Order Service -> order-created -> Payment Service -> payment-completed -> Notification Service
 
